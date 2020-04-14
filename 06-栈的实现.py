@@ -3,7 +3,7 @@ from collections import deque
 
 class Stack:
     """
-    双端队列（包含了栈的实现）
+    双端队列（包含了栈）
     """
 
     def __init__(self):
