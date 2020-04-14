@@ -1,4 +1,7 @@
 class Array:
+    """
+    用list实现array
+    """
     def __init__(self, size):
         self.__size = size  # 记录容器大小
         self.__item = [None] * size  # 分配空间
