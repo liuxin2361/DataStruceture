@@ -1,3 +1,8 @@
+"""
+冒泡排序法
+"""
+
+
 def bubble_sort(array):
     count = len(array) - 1
     for i in range(count):
