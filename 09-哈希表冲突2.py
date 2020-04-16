@@ -57,13 +57,14 @@ class HashTable:
                     temp = temp_next
                     temp_next = temp.next
                 temp_next = s
+                return
         self.items[index] = s
 
     def get(self, key):
         index = self._get_index(key)  # 获取key对应的索引
         if self.items[index]:
             if self.items[index].key == key:
-                return self.items[index].value
+                return self.items[index]
             else:
                 temp_next = self.items[index].next
                 while temp_next is not None:
