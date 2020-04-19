@@ -1,0 +1,564 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>线性结构 · SXT尚学堂-Python数据结构</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03-链性结构.html" />
+    
+    
+    <link rel="prev" href="01-大O表示法.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    图书介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    数据结构与算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="00-前言.html">
+            
+                <a href="00-前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="01-大O表示法.html">
+            
+                <a href="01-大O表示法.html">
+            
+                    
+                    大O表示法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="02-线性结构.html">
+            
+                <a href="02-线性结构.html">
+            
+                    
+                    线性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="03-链性结构.html">
+            
+                <a href="03-链性结构.html">
+            
+                    
+                    链性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="04-队列与栈.html">
+            
+                <a href="04-队列与栈.html">
+            
+                    
+                    队列与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="05-哈希表.html">
+            
+                <a href="05-哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="06-递归与栈.html">
+            
+                <a href="06-递归与栈.html">
+            
+                    
+                    递归与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="07-线性查找.html">
+            
+                <a href="07-线性查找.html">
+            
+                    
+                    线性查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="08-二分查找.html">
+            
+                <a href="08-二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="09-冒泡排序.html">
+            
+                <a href="09-冒泡排序.html">
+            
+                    
+                    冒泡排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="10-选择排序.html">
+            
+                <a href="10-选择排序.html">
+            
+                    
+                    选择排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="11-插入排序.html">
+            
+                <a href="11-插入排序.html">
+            
+                    
+                    插入排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="12-归并排序.html">
+            
+                <a href="12-归并排序.html">
+            
+                    
+                    归并排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="13-快速排序.html">
+            
+                <a href="13-快速排序.html">
+            
+                    
+                    快速排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="14-树结构.html">
+            
+                <a href="14-树结构.html">
+            
+                    
+                    树结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="15-树与堆.html">
+            
+                <a href="15-树与堆.html">
+            
+                    
+                    树与堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="16-二叉树.html">
+            
+                <a href="16-二叉树.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >线性结构</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7EBF;&#x6027;&#x7ED3;&#x6784;">&#x7EBF;&#x6027;&#x7ED3;&#x6784;</h2>
+<p>&#x672C;&#x8282;&#x6211;&#x4EEC;&#x4ECE;&#x6700;&#x7B80;&#x5355;&#x548C;&#x5E38;&#x7528;&#x7684;&#x7EBF;&#x6027;&#x7ED3;&#x6784;&#x5F00;&#x59CB;&#xFF0C;&#x5E76;&#x7ED3;&#x5408; Python &#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x5185;&#x7F6E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x548C;&#x5176;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6765;&#x8BB2;&#x89E3;&#x3002; &#x867D;&#x7136;&#x672C;&#x8D28;&#x4E0A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x601D;&#x60F3;&#x662F;&#x8BED;&#x8A00;&#x65E0;&#x5173;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E86;&#x89E3; Python &#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6709;&#x52A9;&#x4E8E;&#x4F60;&#x907F;&#x514D;&#x4E00;&#x4E9B;&#x5751;</p>
+<h2 id="&#x6570;&#x7EC4;-array">&#x6570;&#x7EC4; array</h2>
+<p>&#x6570;&#x7EC4;&#x662F;&#x6700;&#x5E38;&#x7528;&#x5230;&#x7684;&#x4E00;&#x79CD;&#x7EBF;&#x6027;&#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x5B9E; python &#x5185;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A; array &#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x5927;&#x90E8;&#x4EBA;&#x751A;&#x81F3;&#x4ECE;&#x6765;&#x6CA1;&#x7528;&#x8FC7;&#x5B83;&#x3002; Python &#x7684; array &#x662F;&#x5185;&#x5B58;&#x8FDE;&#x7EED;&#x3001;&#x5B58;&#x50A8;&#x7684;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x80FD;&#x5B58;&#x6570;&#x503C;&#x548C;&#x5B57;&#x7B26;&#x3002;</p>
+<p>&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x8BFE;&#x4E0B;&#x770B;&#x4E0B; array &#x7684;&#x6587;&#x6863;&#xFF1A;<a href="https://docs.python.org/2/library/array.html" target="_blank">https://docs.python.org/2/library/array.html</a></p>
+<p>&#x6700;&#x5E38;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x8BF4;&#x7684; list&#xFF0C; &#x672C;&#x8282;&#x6700;&#x540E;&#x6211;&#x4EEC;&#x4F1A;&#x7528; list &#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x3001;&#x5E76;&#x4E14;&#x652F;&#x6301;&#x6240;&#x6709; Python &#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4; Array.</p>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;</th>
+<th>&#x5E73;&#x5747;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list[index]</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>list.append</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>list.insert</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>list.pop(index)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>list.remove</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x7528;-list-&#x5B9E;&#x73B0;-array-adt">&#x7528; list &#x5B9E;&#x73B0; Array ADT</h2>
+<p>&#x56E0;&#x4E3A;&#x5728;&#x522B;&#x7684;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;array&#x662F;&#x5B9A;&#x957F;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728;&#x6B64;&#xFF0C;&#x901A;&#x8FC7;List&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5B9A;&#x957F;&#x7684;&#x6570;&#x7EC4;</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Array</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, size)</span>:</span>
+        self.__size = size
+        self.__item = [<span class="hljs-keyword">None</span>] * size
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, index)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__item[index]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setitem__</span><span class="hljs-params">(self, key, value)</span>:</span>
+        self.__item[key] = value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__len__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__size
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clear</span><span class="hljs-params">(self, value=None)</span>:</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(self.__size)):
+            self.__item[i] = value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> self.__item:
+            <span class="hljs-keyword">yield</span> v
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    a = Array(<span class="hljs-number">10</span>)
+    a[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>
+    a[<span class="hljs-number">2</span>] = <span class="hljs-number">20</span>
+    print(len(a))
+    print(a.__len__())
+</code></pre>
+<h2 id="&#x7EC3;&#x4E60;&#xFF1A;">&#x7EC3;&#x4E60;&#xFF1A;</h2>
+<ol>
+<li>&#x5B8C;&#x6210;&#x5BB9;&#x91CF;&#x5185;&#x5BB9;&#x6269;&#x5C55;</li>
+<li>&#x5B8C;&#x5728;&#x5220;&#x9664;&#x529F;&#x80FD;</li>
+</ol>
+<p>&#x53C2;&#x8003;&#xFF1A;<a href="https://github.com/python/cpython" target="_blank">https://github.com/python/cpython</a></p>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
+2019-09-01 21:37:27
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01-大O表示法.html" class="navigation navigation-prev " aria-label="Previous page: 大O表示法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03-链性结构.html" class="navigation navigation-next " aria-label="Next page: 链性结构">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"线性结构","level":"2.3","depth":1,"next":{"title":"链性结构","level":"2.4","depth":1,"path":"data_structure/03-链性结构.md","ref":"data_structure/03-链性结构.md","articles":[]},"previous":{"title":"大O表示法","level":"2.2","depth":1,"path":"data_structure/01-大O表示法.md","ref":"data_structure/01-大O表示法.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-disqus","github","-editlink","-prism","highlight","-baidu","splitter","-sitemap","tbfed-pagefooter","fontsettings","simple-page-toc","links","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{},"disqus":{"shortName":"webpack-handbook"},"github":{"url":"https://github.com/feelingslw"},"editlink":{"base":"https://github.com/webChatContact","label":"编辑本页面"},"livereload":{},"simple-page-toc":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"sitemap":{"hostname":"http://baidu.com/"},"links":{},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SXT尚学堂-Python数据结构","language":"zh-hans","gitbook":"*","description":"此教案使用Python实现基础数据结构与算法，通过文档加代写代码，让每位同学可以轻松学习并掌握"},"file":{"path":"data_structure/02-线性结构.md","mtime":"2019-09-01T13:37:27.003Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T08:22:57.677Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

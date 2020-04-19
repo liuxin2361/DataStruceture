@@ -1,0 +1,551 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>递归与栈 · SXT尚学堂-Python数据结构</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="07-线性查找.html" />
+    
+    
+    <link rel="prev" href="05-哈希表.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    图书介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    数据结构与算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="00-前言.html">
+            
+                <a href="00-前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="01-大O表示法.html">
+            
+                <a href="01-大O表示法.html">
+            
+                    
+                    大O表示法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="02-线性结构.html">
+            
+                <a href="02-线性结构.html">
+            
+                    
+                    线性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="03-链性结构.html">
+            
+                <a href="03-链性结构.html">
+            
+                    
+                    链性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="04-队列与栈.html">
+            
+                <a href="04-队列与栈.html">
+            
+                    
+                    队列与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="05-哈希表.html">
+            
+                <a href="05-哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.7" data-path="06-递归与栈.html">
+            
+                <a href="06-递归与栈.html">
+            
+                    
+                    递归与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="07-线性查找.html">
+            
+                <a href="07-线性查找.html">
+            
+                    
+                    线性查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="08-二分查找.html">
+            
+                <a href="08-二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="09-冒泡排序.html">
+            
+                <a href="09-冒泡排序.html">
+            
+                    
+                    冒泡排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="10-选择排序.html">
+            
+                <a href="10-选择排序.html">
+            
+                    
+                    选择排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="11-插入排序.html">
+            
+                <a href="11-插入排序.html">
+            
+                    
+                    插入排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="12-归并排序.html">
+            
+                <a href="12-归并排序.html">
+            
+                    
+                    归并排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="13-快速排序.html">
+            
+                <a href="13-快速排序.html">
+            
+                    
+                    快速排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="14-树结构.html">
+            
+                <a href="14-树结构.html">
+            
+                    
+                    树结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="15-树与堆.html">
+            
+                <a href="15-树与堆.html">
+            
+                    
+                    树与堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="16-二叉树.html">
+            
+                <a href="16-二叉树.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >递归与栈</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x9012;&#x5F52;&#x4E0E;&#x6808;">&#x9012;&#x5F52;&#x4E0E;&#x6808;</h2>
+<h3 id="&#x9012;&#x5F52;">&#x9012;&#x5F52;</h3>
+<p>&#x9012;&#x5F52;&#x662F;&#x5F88;&#x591A;&#x7B97;&#x6CD5;&#x90FD;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x7F16;&#x7A0B;&#x65B9;&#x6CD5;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x8868;&#x73B0;&#x5728;&#x4E8E;&#x81EA;&#x5DF1;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x3002;</p>
+<p>&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<blockquote>
+<p> &#x4ECE;&#x524D;&#x6709;&#x5EA7;&#x5C71;&#xFF0C;&#x5C71;&#x91CC;&#x6709;&#x5EA7;&#x5E99;&#xFF0C;&#x5E99;&#x91CC;&#x6709;&#x4E2A;&#x8001;&#x548C;&#x5C1A;&#xFF0C;&#x6B63;&#x5728;&#x7ED9;&#x5C0F;&#x548C;&#x5C1A;&#x8BB2;&#x6545;&#x4E8B;&#x5462;&#xFF01;&#x6545;&#x4E8B;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&quot;&#x4ECE;&#x524D;&#x6709;&#x5EA7;&#x5C71;&#xFF0C;&#x5C71;&#x91CC;&#x6709;&#x5EA7;&#x5E99;&#xFF0C;&#x5E99;&#x91CC;&#x6709;&#x4E2A;&#x8001;&#x548C;&#x5C1A;&#xFF0C;&#x6B63;&#x5728;&#x7ED9;&#x5C0F;&#x548C;&#x5C1A;&#x8BB2;&#x6545;&#x4E8B;&#x5462;&#xFF01;&#x6545;&#x4E8B;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&apos;&#x4ECE;&#x524D;&#x6709;&#x5EA7;&#x5C71;&#xFF0C;&#x5C71;&#x91CC;&#x6709;&#x5EA7;&#x5E99;&#xFF0C;&#x5E99;&#x91CC;&#x6709;&#x4E2A;&#x8001;&#x548C;&#x5C1A;&#xFF0C;&#x6B63;&#x5728;&#x7ED9;&#x5C0F;&#x548C;&#x5C1A;&#x8BB2;&#x6545;&#x4E8B;&#x5462;&#xFF01;&#x6545;&#x4E8B;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x2026;...</p>
+<p>&#x4E70;&#x7684;&#x793C;&#x54C1;,&#x5305;&#x88C5;&#x76D2;&#x5B50;&#x91CC;&#x6709;&#x7B2C;&#x4E8C;&#x5C42;&#x5305;&#x88C5;&#x76D2;&#xFF0C;&#x7B2C;&#x4E8C;&#x5C42;&#x5305;&#x88C5;&#x76D2;&#x91CC;&#x6709;&#x7B2C;&#x4E09;&#x5C42;&#x5305;&#x88C5;&#x76D2;&#xFF0C;&#x7B2C;&#x4E09;&#x5C42;&#x5305;&#x88C5;&#x76D2;&#x91CC;&#x6709;&#x5305;&#x88C5;&#x7EB8;.....</p>
+</blockquote>
+<p>&#x5982;&#x4E0A;&#x7684;&#x6545;&#x4E8B;&#x7FFB;&#x8BD1;&#x6210;&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gu_shi</span><span class="hljs-params">()</span>:</span>
+  print(<span class="hljs-string">&apos;&#x4ECE;&#x524D;&#x6709;&#x5EA7;&#x5C71;&#xFF0C;&#x5C71;&#x91CC;&#x6709;&#x5EA7;&#x5E99;&#xFF0C;&#x5E99;&#x91CC;&#x6709;&#x4E2A;&#x8001;&#x548C;&#x5C1A;&#xFF0C;&#x6B63;&#x5728;&#x7ED9;&#x5C0F;&#x548C;&#x5C1A;&#x8BB2;&#x6545;&#x4E8B;&#x5462;&#xFF01;&apos;</span>)
+  gu_shi()
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bao_zhuang</span><span class="hljs-params">()</span>:</span>
+  print(<span class="hljs-string">&apos;&#x6709;&#x5305;&#x88C5;&#xFF0C;&#x7EE7;&#x7EED;&#x62C6;&apos;</span>)
+  bao_zhuang()
+</code></pre>
+<h4 id="&#x57FA;&#x7EBF;&#x6761;&#x4EF6;&#x548C;&#x9012;&#x5F52;&#x6761;&#x4EF6;">&#x57FA;&#x7EBF;&#x6761;&#x4EF6;&#x548C;&#x9012;&#x5F52;&#x6761;&#x4EF6;</h4>
+<p>&#x7531;&#x4E8E;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#xFF0C;&#x56E0;&#x6B64;&#x7F16;&#x5199;&#x8FD9;&#x6837;&#x7684;&#x51FD;&#x6570;&#x65F6;&#x5F88;&#x5BB9;&#x51FA;&#x9519;&#xFF0C;&#x8FDB;&#x800C;&#x5BFC;&#x81F4;&#x65E0;&#x7EBF;&#x5FAA;&#x73AF;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x4F60;&#x8981;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5012;&#x8BA1;&#x65F6;&#x7684;&#x51FD;&#x6570;</p>
+<p>5...4...3...2...1</p>
+<p>&#x4E3A;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#x7F16;&#x5199;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_down</span><span class="hljs-params">(i)</span>:</span>
+  print(i)
+  count_donw(i<span class="hljs-number">-1</span>)
+</code></pre>
+<p><strong>&#x5982;&#x679C;&#x8FD0;&#x884C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#xFF0C;&#x76F4;&#x5230;&#x5185;&#x5B58;&#x76CA;&#x5904;&#x6216;&#x8005;&#x5F3A;&#x5236;&#x9000;&#x51FA;(<code>Ctrl+C</code>)</strong></p>
+<p>&#x7F16;&#x5199;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x544A;&#x8BC9;&#x5B83;&#x4F55;&#x65F6;&#x505C;&#x6B62;&#x9012;&#x5F52;&#x3002;&#x6B63;&#x56E0;&#x4E3A;&#x5982;&#x6B64;&#xFF0C;<strong>&#x6BCF;&#x4E2A;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E24;&#x90E8;&#x5206;&#xFF1A;&#x57FA;&#x7EBF;&#x6761;&#x4EF6; &#x4E0E; &#x9012;&#x5F52;&#x6761;&#x4EF6;</strong>&#xFF0C;&#x9012;&#x5F52;&#x6761;&#x4EF6;&#x6307;&#x7684;&#x662F;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#xFF0C;&#x800C;&#x57FA;&#x7EBF;&#x6761;&#x4EF6;&#x5219;&#x6307;&#x7684;&#x662F;&#x51FD;&#x6570;&#x4E0D;&#x518D;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x5F62;&#x6210;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x3002;</p>
+<p>&#x4FEE;&#x6539;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_down</span><span class="hljs-params">(i)</span>:</span>
+  print(i)
+  <span class="hljs-keyword">if</span> i&lt;=<span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span>
+  <span class="hljs-keyword">else</span>:
+      count_donw(i<span class="hljs-number">-1</span>)
+</code></pre>
+<h3 id="&#x8C03;&#x7528;&#x6808;">&#x8C03;&#x7528;&#x6808;</h3>
+<p>&#x8C03;&#x7528;&#x6808;&#xFF08;call stack&#xFF09;&#x4E0D;&#x4EC5;&#x5BF9;&#x7F16;&#x7A0B;&#x6765;&#x8BF4;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x4E5F;&#x5FC5;&#x987B;&#x7406;&#x89E3;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;</p>
+<p>&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x4E70;&#x4E2A;&#x6765;&#x7684;&#x85AF;&#x613F;(&#x76D2;&#x88C5;)&#xFF0C;&#x5047;&#x5982;&#x5728;&#x5305;&#x88C5;&#x65F6;&#x4E00;&#x7247;&#x4E00;&#x7247;&#x7684;&#x88C5;&#x76D2;&#xFF08;&#x538B;&#x5165;&#xFF0C;&#x5728;&#x6700;&#x4E0A;&#x7684;&#x9762;&#x7684;&#x90A3;&#x7247;&#x4E0A;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x85AF;&#x7247;&#xFF09;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x5403;&#x6253;&#x4E2A;&#x5305;&#x88C5;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x6495;&#x5F00;&#x4E00;&#x4E2A;&#x53E3;&#xFF0C;&#x4E00;&#x7247;&#x7247;&#x53D6;&#x51FA;&#x6765;&#xFF08;&#x5F39;&#x51FA;&#xFF0C;&#x83B7;&#x53D6;&#x6700;&#x4E0A;&#x9762;&#x90A3;&#x7247;&#x85AF;&#x7247;&#x5E76;&#x5403;&#x6389;&#xFF09;</p>
+</blockquote>
+<h4 id="&#x9012;&#x5F52;&#x8C03;&#x7528;&#x6808;">&#x9012;&#x5F52;&#x8C03;&#x7528;&#x6808;</h4>
+<p>&#x9012;&#x5F52;&#x51FD;&#x6570;&#x4E5F;&#x4F7F;&#x7528;&#x8C03;&#x7528;&#x6808;</p>
+<p>&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<p>&#x6211;&#x4EEC;&#x5199;&#x4E00;&#x4E2A;5&#x7684;&#x9636;&#x4E58;&#x3002;&#x5B9A;&#x4E49;&#xFF1A;5&#xFF01;=5 <em> 4 </em> 3 <em> 2 </em> 1 &#x3002;&#x540C;&#x7406;&#xFF0C;3&#xFF01;=3 <em> 2 </em> 1</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fact</span><span class="hljs-params">(x)</span>:</span>
+  <span class="hljs-keyword">if</span> x==<span class="hljs-number">1</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+  <span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">return</span> x * fact(x<span class="hljs-number">-1</span>)
+</code></pre>
+<h3 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h3>
+<ul>
+<li>&#x9012;&#x5F52;&#x6307;&#x7684;&#x662F;&#x8C03;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x51FD;&#x6570;</li>
+<li>&#x6BCF;&#x4E2A;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;&#x57FA;&#x7EBF;&#x6761;&#x4EF6;&#x548C;&#x9012;&#x5F52;&#x6761;&#x4EF6;</li>
+<li>&#x6808;&#x6709;&#x4E24;&#x79CD;&#x64CD;&#x4F5C;&#xFF1A;&#x538B;&#x5165; &#x548C; &#x5F39;&#x51FA;</li>
+<li>&#x6240;&#x6709;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x90FD;&#x8FDB;&#x5165;&#x8C03;&#x7528;&#x6808;</li>
+<li>&#x8C03;&#x7528;&#x6808;&#x53EF;&#x80FD;&#x5F88;&#x957F;&#xFF0C;&#x8FD9;&#x5C06;&#x5360;&#x7528;&#x5927;&#x91CF;&#x7684;&#x5185;&#x5B58; </li>
+</ul>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
+2019-09-17 15:07:19
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="05-哈希表.html" class="navigation navigation-prev " aria-label="Previous page: 哈希表">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="07-线性查找.html" class="navigation navigation-next " aria-label="Next page: 线性查找">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"递归与栈","level":"2.7","depth":1,"next":{"title":"线性查找","level":"2.8","depth":1,"path":"data_structure/07-线性查找.md","ref":"data_structure/07-线性查找.md","articles":[]},"previous":{"title":"哈希表","level":"2.6","depth":1,"path":"data_structure/05-哈希表.md","ref":"data_structure/05-哈希表.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-disqus","github","-editlink","-prism","highlight","-baidu","splitter","-sitemap","tbfed-pagefooter","fontsettings","simple-page-toc","links","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{},"disqus":{"shortName":"webpack-handbook"},"github":{"url":"https://github.com/feelingslw"},"editlink":{"base":"https://github.com/webChatContact","label":"编辑本页面"},"livereload":{},"simple-page-toc":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"sitemap":{"hostname":"http://baidu.com/"},"links":{},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SXT尚学堂-Python数据结构","language":"zh-hans","gitbook":"*","description":"此教案使用Python实现基础数据结构与算法，通过文档加代写代码，让每位同学可以轻松学习并掌握"},"file":{"path":"data_structure/06-递归与栈.md","mtime":"2019-09-17T07:07:19.627Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T08:22:57.677Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

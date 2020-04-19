@@ -1,0 +1,655 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>树与堆 · SXT尚学堂-Python数据结构</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-links/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="16-二叉树.html" />
+    
+    
+    <link rel="prev" href="14-树结构.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    图书介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    数据结构与算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="00-前言.html">
+            
+                <a href="00-前言.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="01-大O表示法.html">
+            
+                <a href="01-大O表示法.html">
+            
+                    
+                    大O表示法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="02-线性结构.html">
+            
+                <a href="02-线性结构.html">
+            
+                    
+                    线性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="03-链性结构.html">
+            
+                <a href="03-链性结构.html">
+            
+                    
+                    链性结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="04-队列与栈.html">
+            
+                <a href="04-队列与栈.html">
+            
+                    
+                    队列与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="05-哈希表.html">
+            
+                <a href="05-哈希表.html">
+            
+                    
+                    哈希表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="06-递归与栈.html">
+            
+                <a href="06-递归与栈.html">
+            
+                    
+                    递归与栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="07-线性查找.html">
+            
+                <a href="07-线性查找.html">
+            
+                    
+                    线性查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="08-二分查找.html">
+            
+                <a href="08-二分查找.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="09-冒泡排序.html">
+            
+                <a href="09-冒泡排序.html">
+            
+                    
+                    冒泡排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="10-选择排序.html">
+            
+                <a href="10-选择排序.html">
+            
+                    
+                    选择排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="11-插入排序.html">
+            
+                <a href="11-插入排序.html">
+            
+                    
+                    插入排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="12-归并排序.html">
+            
+                <a href="12-归并排序.html">
+            
+                    
+                    归并排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="13-快速排序.html">
+            
+                <a href="13-快速排序.html">
+            
+                    
+                    快速排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="14-树结构.html">
+            
+                <a href="14-树结构.html">
+            
+                    
+                    树结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.16" data-path="15-树与堆.html">
+            
+                <a href="15-树与堆.html">
+            
+                    
+                    树与堆
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.17" data-path="16-二叉树.html">
+            
+                <a href="16-二叉树.html">
+            
+                    
+                    二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >树与堆</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5806;heap">&#x5806;(heap)</h2>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x5806;&#xFF1F;">&#x4EC0;&#x4E48;&#x662F;&#x5806;&#xFF1F;</h2>
+<p>&#x5806;&#x662F;&#x4E00;&#x79CD;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF08;&#x8BF7;&#x4F60;&#x56DE;&#x987E;&#x4E0B;&#x4E0A;&#x4E00;&#x7AE0;&#x7684;&#x6982;&#x5FF5;&#xFF09;&#xFF0C;&#x6709;&#x6700;&#x5927;&#x5806;&#x548C;&#x6700;&#x5C0F;&#x5806;&#x4E24;&#x79CD;&#x3002;</p>
+<ul>
+<li>&#x6700;&#x5927;&#x5806;: &#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9; V&#xFF0C;V &#x7684;&#x503C;&#x90FD;&#x6BD4;&#x5B83;&#x7684;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#x5927;&#xFF0C;&#x79F0;&#x4E3A; &#x6700;&#x5927;&#x5806;&#x7279;&#x6027;(heap order property)
+&#x6700;&#x5927;&#x5806;&#x91CC;&#x7684;&#x6839;&#x603B;&#x662F;&#x5B58;&#x50A8;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x6700;&#x5C0F;&#x7684;&#x503C;&#x5B58;&#x50A8;&#x5728;&#x53F6;&#x8282;&#x70B9;&#x3002;</li>
+<li>&#x6700;&#x5C0F;&#x5806;&#xFF1A;&#x548C;&#x6700;&#x5927;&#x5806;&#x76F8;&#x53CD;&#xFF0C;&#x6BCF;&#x4E2A;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9; V&#xFF0C;V &#x7684;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#x7684;&#x503C;&#x90FD;&#x6BD4;&#x5B83;&#x5927;&#x3002;</li>
+</ul>
+<p><img src="img/heap.png" alt=""></p>
+<h2 id="&#x5806;&#x7684;&#x64CD;&#x4F5C;">&#x5806;&#x7684;&#x64CD;&#x4F5C;</h2>
+<p>&#x5806;&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x6709;&#x9650;&#x7684;&#x51E0;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li>&#x63D2;&#x5165;&#x65B0;&#x7684;&#x503C;&#x3002;&#x63D2;&#x5165;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#x7684;&#x5C31;&#x662F;&#x9700;&#x8981;&#x7EF4;&#x6301;&#x5806;&#x7684;&#x7279;&#x6027;&#x3002;&#x9700;&#x8981; sift-up &#x64CD;&#x4F5C;&#xFF0C;&#x5177;&#x4F53;&#x4F1A;&#x5728;&#x89C6;&#x9891;&#x548C;&#x4EE3;&#x7801;&#x91CC;&#x89E3;&#x91CA;&#xFF0C;&#x6587;&#x5B57;&#x63CF;&#x8FF0;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#x3002;</li>
+<li>&#x83B7;&#x53D6;&#x5E76;&#x79FB;&#x9664;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;&#x6BCF;&#x6B21;&#x6211;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6700;&#x5927;&#x503C;&#x6216;&#x8005;&#x6700;&#x5C0F;&#x503C;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x628A;&#x5E95;&#x5C42;&#x6700;&#x53F3;&#x8FB9;&#x7684;&#x8282;&#x70B9;&#x503C;&#x66FF;&#x6362;&#x5230; root &#x8282;&#x70B9;&#x4E4B;&#x540E;
+&#x6267;&#x884C; sift-down &#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<p><img src="img/siftup.png" alt="">
+<img src="../Users/feel/file/download/python_data_structures_and_algorithms/docs/15_%E5%A0%86%E4%B8%8E%E5%A0%86%E6%8E%92%E5%BA%8F/siftdown.png" alt=""></p>
+<h2 id="&#x5806;&#x7684;&#x8868;&#x793A;">&#x5806;&#x7684;&#x8868;&#x793A;</h2>
+<p>&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7C7B;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7C7B;&#x8868;&#x793A;&#x6811;&#xFF0C;&#x8FD9;&#x91CC;&#x5176;&#x5B9E;&#x7528;&#x6570;&#x7EC4;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#x5806;&#x3002;</p>
+<p><img src="img/heap_array.png" alt=""></p>
+<p>&#x4ED4;&#x7EC6;&#x89C2;&#x5BDF;&#x4E0B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6811;&#x4E0D;&#x4F1A;&#x6709;&#x95F4;&#x9699;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x91CC;&#x7684;&#x4E00;&#x4E2A;&#x4E0B;&#x6807; i&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5B83;&#x7684;&#x7236;&#x4EB2;&#x548C;&#x5B69;&#x5B50;&#x7684;&#x8282;&#x70B9;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x6807;&#xFF1A;</p>
+<pre><code>parent = int((i-1) / 2)    # &#x53D6;&#x6574;
+left = 2 * i + 1
+right = 2 * i + 2
+</code></pre><p>&#x8D85;&#x51FA;&#x4E0B;&#x6807;&#x8868;&#x793A;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#x3002;</p>
+<h2 id="&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x5806;">&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x5806;</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaxHeap</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, maxsize=None)</span>:</span>
+        self.maxsize = maxsize
+        self._elements = Array(maxsize)
+        self._count = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__len__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._count
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(self, value)</span>:</span>
+        <span class="hljs-keyword">if</span> self._count &gt;= self.maxsize:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&apos;full&apos;</span>)
+        self._elements[self._count] = value
+        self._count += <span class="hljs-number">1</span>
+        self._siftup(self._count<span class="hljs-number">-1</span>)  <span class="hljs-comment"># &#x7EF4;&#x6301;&#x5806;&#x7684;&#x7279;&#x6027;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_siftup</span><span class="hljs-params">(self, ndx)</span>:</span>
+        <span class="hljs-keyword">if</span> ndx &gt; <span class="hljs-number">0</span>:
+            parent = int((ndx<span class="hljs-number">-1</span>)/<span class="hljs-number">2</span>)
+            <span class="hljs-keyword">if</span> self._elements[ndx] &gt; self._elements[parent]:    <span class="hljs-comment"># &#x5982;&#x679C;&#x63D2;&#x5165;&#x7684;&#x503C;&#x5927;&#x4E8E; parent&#xFF0C;&#x4E00;&#x76F4;&#x4EA4;&#x6362;</span>
+                self._elements[ndx], self._elements[parent] = self._elements[parent], self._elements[ndx]
+                self._siftup(parent)    <span class="hljs-comment"># &#x9012;&#x5F52;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self._count &lt;= <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&apos;empty&apos;</span>)
+        value = self._elements[<span class="hljs-number">0</span>]    <span class="hljs-comment"># &#x4FDD;&#x5B58; root &#x503C;</span>
+        self._count -= <span class="hljs-number">1</span>
+        self._elements[<span class="hljs-number">0</span>] = self._elements[self._count]    <span class="hljs-comment"># &#x6700;&#x53F3;&#x4E0B;&#x7684;&#x8282;&#x70B9;&#x653E;&#x5230;root&#x540E;siftDown</span>
+        self._siftdown(<span class="hljs-number">0</span>)    <span class="hljs-comment"># &#x7EF4;&#x6301;&#x5806;&#x7279;&#x6027;</span>
+        <span class="hljs-keyword">return</span> value
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_siftdown</span><span class="hljs-params">(self, ndx)</span>:</span>
+        left = <span class="hljs-number">2</span> * ndx + <span class="hljs-number">1</span>
+        right = <span class="hljs-number">2</span> * ndx + <span class="hljs-number">2</span>
+        <span class="hljs-comment"># determine which node contains the larger value</span>
+        largest = ndx
+        <span class="hljs-keyword">if</span> (left &lt; self._count <span class="hljs-keyword">and</span>     <span class="hljs-comment"># &#x6709;&#x5DE6;&#x5B69;&#x5B50;</span>
+                self._elements[left] &gt;= self._elements[largest] <span class="hljs-keyword">and</span>
+                self._elements[left] &gt;= self._elements[right]):  <span class="hljs-comment"># &#x539F;&#x4E66;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x6CA1;&#x5199;&#x5B9E;&#x9645;&#x4E0A;&#x627E;&#x7684;&#x672A;&#x5FC5;&#x662F;largest</span>
+            largest = left
+        <span class="hljs-keyword">elif</span> right &lt; self._count <span class="hljs-keyword">and</span> self._elements[right] &gt;= self._elements[largest]:
+            largest = right
+        <span class="hljs-keyword">if</span> largest != ndx:
+            self._elements[ndx], self._elements[largest] = self._elements[largest], self._elements[ndx]
+            self._siftdown(largest)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_maxheap</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> random
+    n = <span class="hljs-number">5</span>
+    h = MaxHeap(n)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n):
+        h.add(i)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> reversed(range(n)):
+        <span class="hljs-keyword">assert</span> i == h.extract()
+</code></pre>
+<h2 id="&#x5B9E;&#x73B0;&#x5806;&#x6392;&#x5E8F;">&#x5B9E;&#x73B0;&#x5806;&#x6392;&#x5E8F;</h2>
+<p>&#x4E0A;&#x8FB9;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E86;&#x6700;&#x5927;&#x5806;&#xFF0C;&#x6BCF;&#x6B21;&#x6211;&#x4EEC;&#x90FD;&#x80FD; extract &#x4E00;&#x4E2A;&#x6700;&#x5927;&#x7684;&#x5143;&#x7D20;&#x4E86;&#xFF0C;&#x4E8E;&#x662F;&#x4E00;&#x4E2A;&#x5012;&#x5E8F;&#x6392;&#x5E8F;&#x51FD;&#x6570;&#x5C31;&#x80FD;&#x5F88;&#x5BB9;&#x6613;&#x5199;&#x51FA;&#x6765;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">heapsort_reverse</span><span class="hljs-params">(array)</span>:</span>
+    length = len(array)
+    maxheap = MaxHeap(length)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> array:
+        maxheap.add(i)
+    res = []
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(length):
+        res.append(maxheap.extract())
+    <span class="hljs-keyword">return</span> res
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_heapsort_reverse</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> random
+    l = list(range(<span class="hljs-number">10</span>))
+    random.shuffle(l)
+    <span class="hljs-keyword">assert</span> heapsort_reverse(l) == sorted(l, reverse=<span class="hljs-keyword">True</span>)
+</code></pre>
+<h2 id="python-&#x91CC;&#x7684;-heapq-&#x6A21;&#x5757;">Python &#x91CC;&#x7684; heapq &#x6A21;&#x5757;</h2>
+<p>python &#x5176;&#x5B9E;&#x81EA;&#x5E26;&#x4E86; heapq &#x6A21;&#x5757;&#xFF0C;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#x5806;&#x7684;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF0C;&#x539F;&#x7406;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#x3002;&#x8BF7;&#x4F60;&#x9605;&#x8BFB;&#x76F8;&#x5173;&#x6587;&#x6863;&#x5E76;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684; heapq &#x6A21;&#x5757;&#x5B8C;&#x6210;&#x5806;&#x6392;&#x5E8F;&#x3002;
+&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x5237;&#x9898;&#x6216;&#x8005;&#x5199;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5185;&#x7F6E;&#x7684; heapq &#x6A21;&#x5757;&#x5C31;&#x591F;&#x7528;&#x4E86;&#xFF0C;&#x5185;&#x7F6E;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x662F;&#x6700;&#x5C0F;&#x5806;&#x3002;</p>
+<h2 id="top-k-&#x95EE;&#x9898;&#x6269;&#x5C55;">Top K &#x95EE;&#x9898;(&#x6269;&#x5C55;)</h2>
+<p>&#x9762;&#x8BD5;&#x9898;&#x4E2D;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x6C42;&#x51FA;&#x5927;&#x91CF;&#x6570;&#x636E;&#x4E2D;&#x7684;top k &#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4EBF;&#x4E2A;&#x6570;&#x5B57;&#x4E2D;&#x6700;&#x5927;&#x7684;100&#x4E2A;&#x6570;&#x5B57;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#x6709;&#x5F88;&#x591A;&#x79CD;&#x89E3;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x76F4;&#x63A5;&#x6392;&#x5E8F;&#x3001;mapreduce&#x3001;trie &#x6811;&#x3001;&#x5206;&#x6CBB;&#x6CD5;&#x7B49;&#xFF0C;&#x5F53;&#x7136;&#x5982;&#x679C;&#x5185;&#x5B58;&#x591F;&#x7528;&#x76F4;&#x63A5;&#x6392;&#x5E8F;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x3002;
+&#x5982;&#x679C;&#x5185;&#x5B58;&#x4E0D;&#x591F;&#x7528;&#x5462;&#xFF1F; &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x63D0;&#x4E00;&#x4E0B;&#x4F7F;&#x7528;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x5806;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x7684;&#x601D;&#x8DEF;&#x53EF;&#x80FD;&#x662F;&#xFF0C;&#x65E2;&#x7136;&#x6C42;&#x6700;&#x5927;&#x7684; k &#x4E2A;&#x6570;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5E94;&#x8BE5;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x5305;&#x542B; k &#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6700;&#x5927;&#x5806;&#x5462;&#xFF1F;
+&#x7A0D;&#x5FAE;&#x5C1D;&#x8BD5;&#x4E0B;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x8D70;&#x4E0D;&#x901A;&#x3002;&#x6211;&#x4EEC;&#x5148;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x524D;&#x9762; k &#x4E2A;&#x5143;&#x7D20;&#x5EFA;&#x7ACB;&#x6700;&#x5927;&#x5806;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x5269;&#x4E0B;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6BD4;&#x5BF9;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x5927;&#x5806;&#x53EA;&#x80FD;&#x6BCF;&#x6B21;&#x83B7;&#x53D6;&#x5806;&#x9876;
+&#x6700;&#x5927;&#x7684;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53D6;&#x4E0B;&#x4E00;&#x4E2A;&#x5927;&#x4E8E;&#x5806;&#x9876;&#x7684;&#x503C;&#x548C;&#x5806;&#x9876;&#x66FF;&#x6362;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x5806;&#x5E95;&#x90E8;&#x7684;&#x5C0F;&#x6570;&#x4E00;&#x76F4;&#x4E0D;&#x4F1A;&#x88AB;&#x6362;&#x6389;&#x3002;&#x5982;&#x679C;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5C0F;&#x4E8E;&#x5806;&#x9876;
+&#x5C31;&#x66FF;&#x6362;&#x4E5F;&#x4E0D;&#x5BF9;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x80FD;&#x6700;&#x5927;&#x7684;&#x5143;&#x7D20;&#x5C31;&#x88AB;&#x6211;&#x4EEC;&#x4E22;&#x6389;&#x4E86;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#x6211;&#x4EEC;&#x7528;&#x6700;&#x5C0F;&#x5806;&#x5462;&#xFF1F;
+&#x5148;&#x8FED;&#x4EE3;&#x524D; k &#x4E2A;&#x5143;&#x7D20;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x5806;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x5143;&#x7D20;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#x5806;&#x9876;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x8DF3;&#x8FC7;&#xFF0C;&#x5426;&#x5219;&#x66FF;&#x6362;&#x5806;&#x9876;&#x5143;&#x7D20;&#x5E76;&#x91CD;&#x65B0;&#x8C03;&#x6574;&#x5806;&#x3002;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x6700;&#x5C0F;&#x5806;&#x91CC;
+&#x6162;&#x6162;&#x5C31;&#x88AB;&#x66FF;&#x6362;&#x6210;&#x4E86;&#x6700;&#x5927;&#x7684;&#x90A3;&#x4E9B;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x6700;&#x540E;&#x5806;&#x9876;&#x662F;&#x6700;&#x5927;&#x7684; topk &#x4E2A;&#x503C;&#x4E2D;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x3002;
+&#xFF08;&#x6BD4;&#x5982;1000&#x4E2A;&#x6570;&#x627E;10&#x4E2A;&#xFF0C;&#x6700;&#x540E;&#x5806;&#x91CC;&#x5269;&#x4F59;&#x7684;&#x662F; [990, 991, 992, 996, 994, 993, 997, 998, 999, 995]&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A; 990 &#x6700;&#x5C0F;)</p>
+<p>&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x601D;&#x8DEF;&#x5F88;&#x5BB9;&#x6613;&#x5199;&#x51FA;&#x6765;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> heapq
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopK</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x83B7;&#x53D6;&#x5927;&#x91CF;&#x5143;&#x7D20; topk &#x5927;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x56FA;&#x5B9A;&#x5185;&#x5B58;
+    &#x601D;&#x8DEF;&#xFF1A;
+    1. &#x5148;&#x653E;&#x5165;&#x5143;&#x7D20;&#x524D; k &#x4E2A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x5806;
+    2. &#x8FED;&#x4EE3;&#x5269;&#x4F59;&#x5143;&#x7D20;&#xFF1A;
+        &#x5982;&#x679C;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x5C0F;&#x4E8E;&#x5806;&#x9876;&#x5143;&#x7D20;&#xFF0C;&#x8DF3;&#x8FC7;&#x8BE5;&#x5143;&#x7D20;&#xFF08;&#x80AF;&#x5B9A;&#x4E0D;&#x662F;&#x524D; k &#x5927;&#xFF09;
+        &#x5426;&#x5219;&#x66FF;&#x6362;&#x5806;&#x9876;&#x5143;&#x7D20;&#x4E3A;&#x5F53;&#x524D;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x8C03;&#x6574;&#x5806;
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, iterable, k)</span>:</span>
+        self.minheap = []
+        self.capacity = k
+        self.iterable = iterable
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">push</span><span class="hljs-params">(self, val)</span>:</span>
+        <span class="hljs-keyword">if</span> len(self.minheap) &gt;= self.capacity:
+            min_val = self.minheap[<span class="hljs-number">0</span>]
+            <span class="hljs-keyword">if</span> val &lt; min_val:  <span class="hljs-comment"># &#x5F53;&#x7136;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5; if val &gt; min_val&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x53EA;&#x662F;&#x663E;&#x793A;&#x6307;&#x51FA;&#x8DF3;&#x8FC7;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;</span>
+                <span class="hljs-keyword">pass</span>
+            <span class="hljs-keyword">else</span>:
+                heapq.heapreplace(self.minheap, val)  <span class="hljs-comment"># &#x8FD4;&#x56DE;&#x5E76;&#x4E14;pop&#x5806;&#x9876;&#x6700;&#x5C0F;&#x503C;&#xFF0C;&#x63A8;&#x5165;&#x65B0;&#x7684; val &#x503C;&#x5E76;&#x8C03;&#x6574;&#x5806;</span>
+        <span class="hljs-keyword">else</span>:
+            heapq.heappush(self.minheap, val)  <span class="hljs-comment"># &#x524D;&#x9762; k &#x4E2A;&#x5143;&#x7D20;&#x76F4;&#x63A5;&#x653E;&#x5165;minheap</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_topk</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> self.iterable:
+            self.push(val)
+        <span class="hljs-keyword">return</span> self.minheap
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> random
+    i = list(range(<span class="hljs-number">1000</span>))  <span class="hljs-comment"># &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x5143;&#x7D20;&#xFF0C;&#x8282;&#x7701;&#x5185;&#x5B58;</span>
+    random.shuffle(i)
+    _ = TopK(i, <span class="hljs-number">10</span>)
+    print(_.get_topk())  <span class="hljs-comment"># [990, 991, 992, 996, 994, 993, 997, 998, 999, 995]</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    test()
+</code></pre>
+<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
+2019-09-17 15:05:41
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="14-树结构.html" class="navigation navigation-prev " aria-label="Previous page: 树结构">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="16-二叉树.html" class="navigation navigation-next " aria-label="Next page: 二叉树">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"树与堆","level":"2.16","depth":1,"next":{"title":"二叉树","level":"2.17","depth":1,"path":"data_structure/16-二叉树.md","ref":"data_structure/16-二叉树.md","articles":[]},"previous":{"title":"树结构","level":"2.15","depth":1,"path":"data_structure/14-树结构.md","ref":"data_structure/14-树结构.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-disqus","github","-editlink","-prism","highlight","-baidu","splitter","-sitemap","tbfed-pagefooter","fontsettings","simple-page-toc","links","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{},"disqus":{"shortName":"webpack-handbook"},"github":{"url":"https://github.com/feelingslw"},"editlink":{"base":"https://github.com/webChatContact","label":"编辑本页面"},"livereload":{},"simple-page-toc":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"sitemap":{"hostname":"http://baidu.com/"},"links":{},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SXT尚学堂-Python数据结构","language":"zh-hans","gitbook":"*","description":"此教案使用Python实现基础数据结构与算法，通过文档加代写代码，让每位同学可以轻松学习并掌握"},"file":{"path":"data_structure/15-树与堆.md","mtime":"2019-09-17T07:05:41.753Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T08:22:57.677Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-links/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
