@@ -2,7 +2,6 @@
 选择排序
 """
 
-
 def selector_sort(args):
     for j in range(0, len(args) - 1):
         min_index = j
